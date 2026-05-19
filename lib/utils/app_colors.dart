@@ -30,4 +30,13 @@ class AppColors {
   // Surface / card
   static const Color surface = Color(0xFF131C35);
   static const Color surfaceLight = Color(0xFF1E2A4A);
+
+  // Input fields
+  static const Color inputBorder = Color(0xFF2A3A5C);
+  static const Color inputFocused = accentCyan;
+  static const Color inputFill = Color(0xFF0F1628);
+
+  // Error / feedback
+  static const Color error = Color(0xFFFF5252);
+  static const Color success = Color(0xFF00C853);
 }

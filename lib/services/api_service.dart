@@ -33,8 +33,58 @@ class ApiService {
     ),
   );
 
-  // TODO (Screen 2): POST /auth/login
-  // TODO (Screen 2): POST /auth/verify-otp
+  // ==========================================================================
+  // Screen 2 — Auth  (🔄 MOCK — connect when API is marked ✅ Ready)
+  // ==========================================================================
+
+  /// POST /auth/login
+  ///
+  /// Sends an OTP to the given phone number.
+  /// Mock: simulates a 1-second network delay and always succeeds.
+  ///
+  /// Throws a [String] error message on failure (for UI to display).
+  Future<void> sendOtp(String phoneNumber) async {
+    // TODO: replace with real API call when marked ✅ Ready
+    // final response = await _dio.post('/auth/login', data: {'phone': phoneNumber});
+
+    // MOCK — simulate network latency
+    await Future.delayed(const Duration(milliseconds: 1000));
+
+    // MOCK — validate phone length only (real validation happens server-side)
+    if (phoneNumber.length != 10) {
+      throw 'Please enter a valid 10-digit phone number.';
+    }
+
+    // MOCK success — OTP "sent"
+  }
+
+  /// POST /auth/verify-otp
+  ///
+  /// Verifies the OTP entered by the user.
+  /// Mock: accepts '1234' as the valid OTP for any phone number.
+  ///
+  /// Returns a mock JWT token string on success.
+  /// Throws a [String] error message on failure (for UI to display).
+  Future<String> verifyOtp(String phoneNumber, String otp) async {
+    // TODO: replace with real API call when marked ✅ Ready
+    // final response = await _dio.post(
+    //   '/auth/verify-otp',
+    //   data: {'phone': phoneNumber, 'otp': otp},
+    // );
+    // return response.data['token'] as String;
+
+    // MOCK — simulate network latency
+    await Future.delayed(const Duration(milliseconds: 1000));
+
+    // MOCK — fixed OTP for testing. Any phone, OTP must be '1234'.
+    if (otp != '1234') {
+      throw 'Invalid OTP. Please try again.';
+    }
+
+    // MOCK — return a fake JWT token
+    return 'mock_jwt_token_parqit_user_${phoneNumber.substring(6)}';
+  }
+
   // TODO (Screen 3): GET  /api/lots?lat=&lng=
   // TODO (Screen 4): GET  /api/slots/:lotId
   // TODO (Screen 5): POST /api/bookings
