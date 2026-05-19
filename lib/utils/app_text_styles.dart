@@ -35,6 +35,9 @@ class AppTextStyles {
         color: AppColors.textPrimary,
       );
 
+  static TextStyle get headingLarge => h1;
+  static TextStyle get headingMedium => h2;
+
   // Body
   static TextStyle get bodyLarge => GoogleFonts.inter(
         fontSize: 16,
@@ -44,6 +47,12 @@ class AppTextStyles {
 
   static TextStyle get bodyMedium => GoogleFonts.inter(
         fontSize: 14,
+        fontWeight: FontWeight.w400,
+        color: AppColors.textSecondary,
+      );
+
+  static TextStyle get bodySmall => GoogleFonts.inter(
+        fontSize: 12,
         fontWeight: FontWeight.w400,
         color: AppColors.textSecondary,
       );
