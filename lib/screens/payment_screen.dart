@@ -440,7 +440,7 @@ class _PaymentScreenState extends State<PaymentScreen> with SingleTickerProvider
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Promo Discount (${_appliedPromo})',
+                  'Promo Discount ($_appliedPromo)',
                   style: GoogleFonts.inter(fontSize: 13, color: AppColors.success),
                 ),
                 Text(
