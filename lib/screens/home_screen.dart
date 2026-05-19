@@ -1,27 +1,7 @@
 import 'package:flutter/material.dart';
 import '../utils/app_colors.dart';
 import '../utils/app_text_styles.dart';
-import '../widgets/primary_button.dart';
-
-class ParkingLot {
-  final String id;
-  final String name;
-  final String address;
-  final String distance;
-  final int pricePerHour;
-  final int totalSlots;
-  final int availableSlots;
-
-  ParkingLot({
-    required this.id,
-    required this.name,
-    required this.address,
-    required this.distance,
-    required this.pricePerHour,
-    required this.totalSlots,
-    required this.availableSlots,
-  });
-}
+import '../models/parking_lot.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -73,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColors.primaryDark,
       body: SafeArea(
         child: Column(
           children: [
@@ -171,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   border: Border.all(color: Colors.white, width: 2),
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.accentCyan.withOpacity(0.4),
+                      color: AppColors.accentCyan.withValues(alpha: 0.4),
                       blurRadius: 8,
                       spreadRadius: 3,
                     ),
@@ -187,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  color: AppColors.surface.withOpacity(0.9),
+                  color: AppColors.surface.withValues(alpha: 0.9),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Row(
@@ -296,7 +276,7 @@ class _HomeScreenState extends State<HomeScreen> {
               width: 48,
               height: 48,
               decoration: BoxDecoration(
-                color: AppColors.accentCyan.withOpacity(0.1),
+                color: AppColors.accentCyan.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Icon(Icons.local_parking,
@@ -345,10 +325,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
                     color: isFull
-                        ? AppColors.error.withOpacity(0.1)
+                        ? AppColors.error.withValues(alpha: 0.1)
                         : isAlmostFull
-                            ? Colors.orange.withOpacity(0.1)
-                            : AppColors.success.withOpacity(0.1),
+                            ? Colors.orange.withValues(alpha: 0.1)
+                            : AppColors.success.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Text(
