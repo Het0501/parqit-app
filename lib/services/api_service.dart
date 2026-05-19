@@ -86,7 +86,43 @@ class ApiService {
   }
 
   // TODO (Screen 3): GET  /api/lots?lat=&lng=
-  // TODO (Screen 4): GET  /api/slots/:lotId
+  // ==========================================================================
+  // Screen 4 — Slots (🔄 MOCK)
+  // ==========================================================================
+
+  /// GET /api/slots/:lotId
+  ///
+  /// Fetches the current grid of parking slots for a specific lot.
+  /// Mock: Returns a static grid of 24 slots (mix of empty/occupied) after 1-second delay.
+  Future<List<Map<String, dynamic>>> fetchSlots(String lotId) async {
+    // TODO: replace with real API call when marked ✅ Ready
+    // final response = await _dio.get('/api/slots/$lotId');
+    // return List<Map<String, dynamic>>.from(response.data['slots']);
+
+    // MOCK — simulate network latency
+    await Future.delayed(const Duration(milliseconds: 1000));
+
+    // MOCK DATA - static grid
+    return [
+      {"slotId": "A1", "status": "empty"},
+      {"slotId": "A2", "status": "occupied"},
+      {"slotId": "A3", "status": "empty"},
+      {"slotId": "A4", "status": "empty"},
+      {"slotId": "B1", "status": "occupied"},
+      {"slotId": "B2", "status": "occupied"},
+      {"slotId": "B3", "status": "empty"},
+      {"slotId": "B4", "status": "empty"},
+      {"slotId": "C1", "status": "empty"},
+      {"slotId": "C2", "status": "empty"},
+      {"slotId": "C3", "status": "occupied"},
+      {"slotId": "C4", "status": "empty"},
+      {"slotId": "D1", "status": "occupied"},
+      {"slotId": "D2", "status": "empty"},
+      {"slotId": "D3", "status": "empty"},
+      {"slotId": "D4", "status": "empty"},
+    ];
+  }
+
   // TODO (Screen 5): POST /api/bookings
   // TODO (Screen 6): POST /api/payment/verify
 }
